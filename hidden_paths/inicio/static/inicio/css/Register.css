@@ -1,0 +1,88 @@
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Banner de encabezado */
+.text-bg {
+    text-align: center;
+    background-color: #4CAF50;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.text-bg h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Estructura del formulario */
+.frame {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: -20px;
+}
+
+.form-signup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo para etiquetas y entradas */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+input.form-styling {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input.form-styling:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Botón de registro */
+.btn-create-account {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-create-account:hover {
+    background-color: #45a049;
+}
+
+/* Efecto en hover para campos de entrada */
+input.form-styling:hover {
+    border-color: #4CAF50;
+}
+
+/* Centrar contenido */
+.center {
+    text-align: center;
+}
+

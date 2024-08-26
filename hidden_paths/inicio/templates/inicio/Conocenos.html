@@ -1,0 +1,37 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}CONÓCENOS{% endblock %}
+
+{% block contenido %}
+{% load static %}
+<div id="contact" class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="titlepage text-center">
+          <h2>Conoce un poco mas sobre nosotros</h2>
+          <p>HIDDEN PATHS es una página web dedicada a los amantes del senderismo que buscan explorar los paisajes más hermosos y escondidos de Morelia y sus alrededores. Morelia, capital del estado de Michoacán en México, es un lugar lleno de historia, cultura y belleza natural, ofreciendo una amplia gama de rutas de senderismo que van desde fáciles hasta desafiantes.</p>
+        </div>
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-md-6">
+        <div class="about_box">
+          <figure>
+            <img src="{% static 'inicio/images/M1.jpg' %}" alt="Imagen de senderismo 1" style="width:100%;">
+          </figure>
+          <h3>Senderismo en Montañas</h3>
+          <p>Descubre senderos ocultos en las montañas más majestuosas. Perfecto para los amantes de la naturaleza y la aventura.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="about_box">
+          <figure>
+            <img src="{% static 'inicio/images/Guia.png' %}" alt="Imagen de senderismo 2" style="width:100%;">
+          </figure>
+          <h3>Exploraciones Guiadas</h3>
+          <p>Nuestros guías expertos te llevarán a los lugares más recónditos y te contarán historias fascinantes sobre cada ruta.</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}
