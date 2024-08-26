@@ -1,0 +1,27 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}Pago{% endblock %}
+
+{% block contenido %}
+<section class="banner_main">
+    <div class="text-bg">
+        <h1>Pago del Tour</h1>
+    </div>
+
+    <div class="container">
+        <form class="form-payment" action="{% url 'Payment' %}" method="post">
+            {% csrf_token %}
+            <!-- Campos de pago -->
+            <label for="card_number">Número de tarjeta</label>
+            <input class="form-styling" type="text" id="card_number" name="card_number" placeholder="Número de tarjeta" required />
+        
+            <label for="expiry_date">Fecha de vencimiento</label>
+            <input class="form-styling" type="text" id="expiry_date" name="expiry_date" placeholder="MM/AA" required />
+        
+            <label for="cvv">CVV</label>
+            <input class="form-styling" type="text" id="cvv" name="cvv" placeholder="CVV" required />
+        
+            <center><button type="submit" class="btn-create-account">Pagar</button></center>
+        </form>
+    </div>
+</section>
+{% endblock %}

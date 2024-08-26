@@ -1,0 +1,26 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}Reviews{% endblock %}
+
+{% block contenido %}
+{% load static %}
+<h1>Reviews</h1>
+
+<a href="{% url 'crear_review' %}" class="btn btn-primary">Hacer una review</a>
+
+<div class="review-container">
+    {% for review in reviews %}
+        <div class="review">
+            <h2>{{ review.tour.nombre_tour }}</h2>
+            <p><strong>Rating:</strong> {{ review.rating }} / 5</p>
+            <p><strong>Comentario:</strong> {{ review.comment }}</p>
+            <p><strong>Review hecha por:</strong> {{ review.user.username }}</p>
+            {% if review.image %}
+                <img src="{{ review.image.url }}" alt="Review Image">
+            {% endif %}
+        </div>
+    {% empty %}
+        <p class="empty-message">No hay reseñas disponibles.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}Haz una Review{% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<div class="glasses">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="titlepage">
+                    <h2>Hacer una Review</h2>
+                    <p>Comparte tu experiencia sobre el tour.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <a class="read_more" href="{% url 'reviews' %}"> <button type="submit">Enviar Review</button></a>
+                </form>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,119 @@
+<html lang ="es">
+    
+{%load static%}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{% static 'inicio/css/general.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'inicio/css/list.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'inicio/css/curso.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'inicio/css/Register.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Inicio</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'inicio/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'inicio/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'inicio/css/responsive.css' %}">
+      <!-- review-->
+      <link rel="stylesheet" href="{% static 'inicio/css/review.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <head>
+        <title>{%block titulo%} {% endblock%}</title>
+    </head>
+      <body class="main-layout position_head">
+
+        <!--MENÚ-->
+        <div class="topnav" id="myTopnav">
+          <li>
+              <a href="{%url 'Principal'%}" class="active">INICIO</a>
+          </li>
+          <li>
+              <a href="{%url 'Tours'%}">TOURS</a>
+          </li>
+          <li>
+              <a href="{%url 'Conocenos'%}">CONOCENOS</a>
+          </li>
+          
+          {% if user.is_authenticated %}
+              <li>
+                  <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();">CERRAR SESIÓN</a>
+              </li>
+
+              <li>
+                  <a href="#">@{{ user.username }}</a>
+              </li>
+
+          {% else %}
+          
+              <li>
+                  <a href="{%url 'LOGIN'%}">LOGIN</a>
+              </li>
+              <li>
+                  <a href="{%url 'Registrarse'%}">REGISTRATE</a>
+              </li>
+          {% endif %}
+          
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+          </a>
+      </div>
+      
+      <!-- Formulario para cerrar sesión -->
+      <form id="logout-form" method="POST" action="{% url 'LOGIN' %}" style="display: none;">
+          {% csrf_token %}
+          <input type="hidden" name="logout" value="true">
+      </form>
+      
+        
+        <!--CONTENIDO-->
+        {%block contenido%} <!--Template Tag-->
+            <!--block contenido-->
+        {%endblock%}
+
+        <footer>
+          <div class="footer">
+             <div class="copyright">
+                <div class="container">
+                   <div class="row">
+                      <div class="col-md-12">
+                         <p>© 2024 All Rights Reserved. Design by<a href="#"> HIDDEN PATHS</a></p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </footer>
+
+      <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+              x.className += " responsive";
+            } else {
+              x.className = "topnav";
+            }
+          }
+      </script>
+        
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+    </div>
+   </body>
+</html>

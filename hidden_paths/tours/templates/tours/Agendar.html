@@ -1,0 +1,54 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}Agendar Tour{% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<section class="banner_main">
+    <div class="text-bg">
+        <h1>Agenda un Tour</h1>
+    </div>
+
+    <div class="container">
+
+       <!-- Formulario para agendar un tour -->
+       <form class="form-agendar" action="{% url 'Agendar' %}" method="post">
+        {% csrf_token %}
+        
+        <label for="nombre">Nombre completo</label>
+        <input class="form-styling" type="text" name="nombre" placeholder="Tu nombre" required />
+    
+        <label for="email">Correo electrónico</label>
+        <input class="form-styling" type="email" name="email" placeholder="Tu correo" required />
+    
+        <label for="numero_telefonico">Número telefónico</label>
+        <input class="form-styling" type="text" name="numero_telefonico" placeholder="Número" required />
+    
+        <label for="fecha">Fecha del tour</label>
+        <input class="form-styling" type="date" name="fecha" required />
+    
+        <label for="hora">Hora del tour</label>
+        <input class="form-styling" type="time" name="hora" required />
+    
+        <label for="num_personas">Número de personas</label>
+        <input class="form-styling" type="number" name="num_personas" placeholder="Número de personas" required />
+    
+        <label for="tipo_tour">Selecciona el tipo de tour</label>
+        <select class="form-styling" name="tipo_tour" required>
+            <option value="" disabled selected>Elige una opción</option>
+            <option value="piedra del indio">Piedra del Indio</option>
+            <option value="presa de cointzio">La Campiña - Presa de Cointzio</option>
+            <option value="morelia">Morelia - El Oasis vía Pico Azul</option>
+            <option value="morelia">La Nieve Montañeros</option>
+            <option value="cuto">Cuto de la Esperanza</option>
+        </select>
+    
+        <center><button type="submit" class="btn-create-account">Agendar tour</button></center>
+        
+    </form>
+
+    </div>
+</section>
+
+{% endblock %}
+

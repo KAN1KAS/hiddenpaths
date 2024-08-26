@@ -1,0 +1,31 @@
+{% extends "inicio/Base.html" %} {%block titulo%}PRINCIPAL{%endblock%}
+{%block contenido%}
+{%load static%}
+<section class="banner_main">
+                   <div class="text-bg">
+                      <h1> <span class="blu">BIENVENIDOS <br></span>A HIDDEN PATHS</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <img src="{% static 'inicio/images/Logo.png' %}" alt="Bienvenido a HIDDEN PATHS" style="width:20%; margin: 20px 0;">
+
+                    <p>Explora lo inexplorado con nosotros. En HIDDEN PATHS, te ofrecemos experiencias únicas de senderismo en los lugares más escondidos y hermosos.
+                     Únete a nosotros para descubrir caminos ocultos y crear recuerdos inolvidables.</p>
+
+                  </div>
+                </div>
+                   </div>
+                   
+<!-- Mostrar mensajes en la página Principal -->
+            {% if messages %}
+            <div>
+              {% for message in messages %}
+                  <p>{{ message }}</p>
+              {% endfor %}
+          </div>
+          {% endif %}
+
+</section>
+{%endblock%}

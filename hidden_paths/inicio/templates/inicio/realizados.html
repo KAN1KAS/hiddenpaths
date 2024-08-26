@@ -1,0 +1,179 @@
+{% extends "inicio/Base.html" %}
+{% block titulo %}Tours{% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="titlepage">
+                <h2>Tours (Realizados)</h2>
+                <center><p>Estos son algunos tours que ya se han realizado.</p></center>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for tour in tours %}
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="glasses_box">
+                <span class="blu"><p>{{ tour.nombre_tour }}</p></span>
+
+                <figure>
+                    <img src="{% if tour.imagen %}{{ tour.imagen.url }}{% else %}{% static 'images/default-tour.jpg' %}{% endif %}" alt="{{ tour.nombre_tour }}" class="tour-image">
+                </figure>
+
+                <h3><span class="blu">Costo:</span> ${{ tour.costo }}</h3>
+                <p><span class="blu">Descripción:</span> {{ tour.descripcion }}</p>
+                <p><span class="blu">Fecha:</span> {{ tour.fecha }}</p>
+                <p><span class="blu">Hora:</span> {{ tour.hora }}</p>
+                <p><span class="blu">Inicio del recorrido:</span> {{ tour.punto_inicio }}</p>
+                <p><span class="blu">Distancia:</span> {{ tour.km_recorrido }} Kms.</p>
+
+                
+            </div>
+        </div>
+        
+        
+        {% endfor %}
+
+       
+    </div>
+    <center><a class="read_more" href="{% url 'Tours' %}"><button class="btn"></button>Regresar</a></center>
+</div>
+
+{% if messages %}
+    <div class="container">
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends "inicio/Base.html" %}
+{% block titulo %}TOURS{% endblock %}
+
+{% block contenido %}
+{% load static %}
+
+<div class="glasses">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="titlepage">
+                    <h2>Tours</h2>
+                    <p>Esperamos que encuentres el recorrido perfecto para ti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            {% for tour in tours %}
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="glasses_box">
+                    <span class="blu"><p>{{ tour.nombre_tour }}</p>
+
+                    <figure>
+                        <img src="{{ tour.imagen.url }}" alt="{{ tour.nombre_tour }}" style="width:80%; height:auto;">
+                    </figure>
+
+                    <h3><span class="blu">Costo: $</span>{{ tour.costo }}</h3>
+                    <span class="blu">Descripcion:<p>{{ tour.descripcion }}</p>
+                    <span class="blu">Fecha:<p>{{ tour.fecha }}</p>
+                    <span class="blu">Hora:<p>{{ tour.hora }}</p>
+                    <span class="blu">Inicio del recorrido:<p>{{ tour.punto_inicio }}</p>
+                    <span class="blu">Distancia<p>{{ tour.km_recorrido }} Kms.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col-md-12">
+            <a class="read_more" href="{% url 'Agendar' %}">Agendar tour</a>
+        </div>
+    </div>
+</div>
+
+{% if messages %}
+    <div class="container">
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}
+ {% endcomment %}
